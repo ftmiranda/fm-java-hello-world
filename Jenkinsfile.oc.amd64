@@ -7,7 +7,7 @@ pipeline {
         git = 'https://github.com/ftmiranda/java-hello-world'   // Replace with your fork of the hello-world code
         oc_token =  credentials('fm-octoken-x86')                                // Replace with OpenShift Token from GUI
         pullSecret =  credentials('fm-pull-secret')
-        ocp_server = 'https://c101-e.us-east.containers.cloud.ibm.com:32149'
+        ocp_server = 'https://c114-e.us-south.containers.cloud.ibm.com:32149'
         app = 'fm-java-hello-world'
     }
 
@@ -26,13 +26,13 @@ pipeline {
         stage('Build and deploy') {
             steps {
                 sh 'oc project $app'
-                sh 'oc delete bc fm-hello-world-http-java || true'
-                sh 'oc delete deployment fm-hello-world-http-java || true'
-                sh 'oc delete service fm-hello-world-http-java || true'
-                sh 'oc delete route fm-hello-world-http-java  || true'
+                sh 'oc delete bc fm-java-hello-world || true'
+                sh 'oc delete deployment fm-java-hello-world || true'
+                sh 'oc delete service fm-java-hello-world || true'
+                sh 'oc delete route fm-java-hello-world  || true'
                 sh 'oc new-app $git'
                 sh 'sleep 10'
-                sh 'oc logs -f bc/fm-hello-world-http-java'
+                sh 'oc logs -f bc/fm-java-hello-world'
                 sh 'sleep 15'
             }
         }
@@ -40,7 +40,7 @@ pipeline {
         stage('Expose Route') {
             steps {
                 sh 'oc project $app'
-                sh 'oc expose svc/fm-hello-world-http-java'
+                sh 'oc expose svc/fm-java-hello-world'
                 sh 'oc get routes -o json | jq -r \'.items[0].spec.host\''
             }
         }
