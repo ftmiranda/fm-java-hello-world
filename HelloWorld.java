@@ -28,7 +28,7 @@ public class HelloWorld {
 
             // Displaying the OS arch that this is running on
             response += "<h2>JVM Architecture: " + System.getProperty("os.arch") + "</h2>\n";
-            response += "<h2>test: " + System.getProperty( "user.timezone" + "</h2>\n";
+            
             response += "<h2>JVM Flavor: " + System.getProperty("java.vm.name") + " "  + System.getProperty("java.version") + "</h2>\n";
             response += "</ul></body></html>\n";
 
