@@ -11,7 +11,7 @@ pipeline {
         app = 'fm-java-hello-world'
     }
 
-      stages {
+    stages {
         stage('Create Project') {
             steps {
                 sh 'oc login --token=$oc_token --insecure-skip-tls-verify --server=$ocp_server'
