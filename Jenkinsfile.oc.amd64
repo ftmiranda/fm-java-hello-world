@@ -7,7 +7,7 @@ pipeline {
         git = 'https://github.com/ftmiranda/java-hello-world'   // Replace with your fork of the hello-world code
         oc_token =  credentials('fm-octoken-x86')                                // Replace with OpenShift Token from GUI
         pullSecret =  credentials('fm-pull-secret')
-        ocp_server = 'https://c114-e.us-south.containers.cloud.ibm.com:32149'
+        ocp_server = 'c115-e.us-south.containers.cloud.ibm.com:30341'
         app = 'fm-java-hello-world'
     }
 
