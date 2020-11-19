@@ -23,7 +23,7 @@ public class HelloWorld {
             System.out.println("Request received from: " + t.getRemoteAddress().toString());
 
             // Displaying Hello message
-            String hello = "Hello Nov 19 10:17am!";
+            String hello = "Demo of multi arch!";
             String response = "<html><body><h1>" + hello + "</h1>\n";
 
             // Displaying the OS arch that this is running on
